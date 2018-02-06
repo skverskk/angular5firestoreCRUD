@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2><i class="fa fa-users"></i> Customers</h2>
+  </div>
+  <div class="col-sm-6">
+
+
+  </div>
+</div>
+<div class="row">
+<table *ngIf="customers?.length>0;else NoCustomers" class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <td>Last Name</td>
+      <td>First Name</td>
+      <td>Phone</td>
+      <td>Job Title</td>
+      <td>Company</td>
+      <td>No.Employees</td>
+     <td>State</td>
+     <td>Active</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.lastName}}</td>
+      <td>{{customer.firstName}}</td>
+      <td>{{customer.phone}}</td>
+      <td>{{customer.jobTitle}}</td>
+      <td>{{customer.company}}</td>
+      <td>{{customer.noEmployees}}</td>
+      <td>{{customer.state}}</td>
+      <td>{{customer.isActive}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<ng-template #NoCustomers>
+  <hr>
+  <h5>There are no customers to display</h5>
+</ng-template>
